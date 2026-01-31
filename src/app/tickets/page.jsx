@@ -1,19 +1,34 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Inbox, Filter, ChevronDown, CheckCircle2 } from 'lucide-react';
-import StatBar from '@/components/ia/StatBar';
-import TicketRow from '@/components/tickets/TicketRow';
+import TicketCard from '@/components/tickets/TicketCard';
+import TicketModal from '@/components/tickets/TicketModal';
+import PurchaseIssues from '@/components/tickets/PurchaseIssues';
 
-export default function TicketsPage() {
-  const tickets = [
-    { id: 'TK-102', subject: "Erreur lors du paiement Stripe", user: "Jean Dupont", priority: "Haute", category: "Facturation", time: "Il y a 12m" },
-    { id: 'TK-105', subject: "Demande d'exportation de données CSV", user: "Marie Curie", priority: "Moyenne", category: "Technique", time: "Il y a 45m" },
-    { id: 'TK-108', subject: "Bug affichage sur mobile (Safari)", user: "Marc Lévy", priority: "Basse", category: "Interface", time: "Il y a 2h" },
+export default function BilletteriePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const eventData = {
+    name: "Summer Festival Cotonou",
+    location: "Plage de Fidjrossè",
+    date: "15 Août 2026",
+    time: "18:00 - 06:00",
+    image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1000&auto=format&fit=crop",
+    tickets: [
+      { type: "Standard", sold: 1200, total: 2000, price: 10 },
+      { type: "Premium", sold: 280, total: 300, price: 50 },
+      { type: "VIP", sold: 15, total: 20, price: 250 },
+    ]
+  };
+
+  const issues = [
+    { id: "ERR-01", message: "Échec de paiement (Solde insuffisant) - Client #94", time: "À l'instant" },
+    { id: "ERR-02", message: "QR Code non généré après achat - Client #102", time: "Il y a 10m" },
+    { id: "ERR-03", message: "QR Code non généré après achat - Client #102", time: "Il y a 10m" },
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <header className="mb-8">
         <motion.h2 
           initial={{ opacity: 0, x: -20 }}
@@ -24,59 +39,25 @@ export default function TicketsPage() {
         </motion.h2>
         <p className="text-gray-500 text-sm">Centralisez les demandes et les problèmes des clients par rapport aux tickets</p>
       </header>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
+        <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <aside className="space-y-6">
-          <div className="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm">
-            <h3 className="text-xs font-black text-gray-400 uppercase mb-4 flex items-center gap-2 tracking-widest">
-              <Filter size={14} /> Filtres
-            </h3>
-            <div className="space-y-2">
-              {['Tous les tickets', 'Assignés à moi', 'Urgents', 'En attente'].map((f, i) => (
-                <div key={i} className={`p-3 rounded-xl text-sm font-bold cursor-pointer transition-colors ${i === 0 ? 'bg-blue-50 text-pulsai-blue' : 'text-gray-500 hover:bg-gray-50'}`}>
-                  {f}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm">
-            <h3 className="text-xs font-black text-gray-400 uppercase mb-4 tracking-widest">Charge Équipe</h3>
-            <StatBar label="Capacité actuelle" value={68} color="#3590E3" />
-            <div className="mt-4">
-               <p className="text-[10px] text-gray-400 italic font-medium leading-relaxed">
-                 L'IA traite actuellement 85% des demandes simples.
-               </p>
-            </div>
-          </div>
-        </aside>
-
-        <div className="lg:col-span-3">
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
-            <div className="p-4 border-b border-gray-100 bg-gray-50/30 flex justify-between items-center text-xs font-bold text-gray-400">
-              <div className="flex items-center gap-4">
-                <Inbox size={16} />
-                <span>3 Tickets ouverts</span>
-              </div>
-              <div className="flex items-center gap-1 cursor-pointer hover:text-gray-600">
-                Trier par : Plus récents <ChevronDown size={14} />
-              </div>
-            </div>
-            
-            <div className="flex flex-col">
-              {tickets.map((t) => (
-                <TicketRow key={t.id} ticket={t} />
-              ))}
-            </div>
-
-            <div className="p-4 bg-gray-50/50 text-center">
-              <button className="text-xs font-bold text-gray-400 hover:text-pulsai-blue transition-colors">
-                Charger les tickets archivés
-              </button>
-            </div>
-          </div>
-        </div>
+        <TicketModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          event={eventData} 
+        />
       </div>
+
+      <section>
+        <PurchaseIssues issues={issues} />
+      </section>
     </div>
   );
 }
