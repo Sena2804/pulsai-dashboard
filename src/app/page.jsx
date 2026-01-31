@@ -2,9 +2,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Tickets, Zap, Activity } from 'lucide-react';
-import StatCard from '@/components/StatCard';
-import GraphicsRealTime from '@/components/GraphicsRealTime';
-import AutomaticsStats from '@/components/AutomaticsStats';
+import StatCard from '@/components/dashboard/StatCard';
+import GraphicsRealTime from '@/components/dashboard/GraphicsRealTime';
+import AutomaticsStats from '@/components/dashboard/AutomaticsStats';
 
 export default function Home() {
   return (

@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import ChatWindow from '@/components/ChatWindow';
-import AIStats from '@/components/AIStats';
-import ConversationList from '@/components/ConversationLists';
+import { motion } from 'framer-motion';
+import ChatWindow from '@/components/ia/ChatWindow';
+import AIStats from '@/components/ia/AIStats';
+import ConversationList from '@/components/ia/ConversationLists';
 
 export default function IAConsultation() {
   const [activeId, setActiveId] = useState('#8294');
@@ -45,10 +46,16 @@ export default function IAConsultation() {
   };
 
   return (
-    <div className="p-4 lg:p-8 space-y-6">
-      <header>
-        <h2 className="text-2xl font-bold text-gray-800 font-unbounded tracking-tight">IA Conversationnelle</h2>
-        <p className="text-gray-500 text-sm">Supervisez et intervenez sur les discussions pilotées par PulsAI.</p>
+    <div className="space-y-6">
+      <header className="mb-8">
+        <motion.h2 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold text-gray-800 font-unbounded"
+        >
+          IA Conversationnelle
+        </motion.h2>
+        <p className="text-gray-500 text-sm">Supervisez et intervenez sur les discussions pilotées par PulsAI</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

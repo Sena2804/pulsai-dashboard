@@ -35,7 +35,6 @@ const AutomaticsStats = () => {
                 <p className="text-sm font-bold text-gray-800 mb-2">{campagne.name}</p>
                 <p className="text-xs text-gray-500 mb-2">{campagne.type}</p>
               </div>
-              <span className="text-xs font-bold text-gray-400">{campagne.reach}</span>
             </div>
             <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
               <motion.div 

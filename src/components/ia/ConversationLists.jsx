@@ -7,9 +7,9 @@ export default function ConversationList({ conversations, activeId, onSelect }) 
   return (
     <aside className="lg:col-span-3 flex flex-col gap-4">
       <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest px-2 flex items-center gap-2">
-        <MessageSquare size={14} /> Flux en direct
+        <MessageSquare size={14} /> Discussions
       </h3>
-      <div className="space-y-3 overflow-y-auto pr-2 max-h-[600px]">
+      <div className="space-y-3 overflow-y-auto pr-2 max-h-[600px] p-2">
         {Object.entries(conversations).map(([id, conv]) => (
           <motion.div 
             key={id}
@@ -22,7 +22,7 @@ export default function ConversationList({ conversations, activeId, onSelect }) 
             }`}
           >
             <div className="flex justify-between items-center mb-1">
-              <span className="font-bold text-sm text-gray-800">{id}</span>
+              <span className="font-bold text-sm text-gray-800">Client{id}</span>
               <span className="text-[10px] text-gray-400">{conv.minutes}</span>
             </div>
             <p className="text-xs text-gray-500 truncate italic">
