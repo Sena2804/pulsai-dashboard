@@ -60,8 +60,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Screenshots of the main pages
 
-- **Dashboard** : ![alt text](image.png)
-- **Conversational ai** : ![alt text](image-1.png)
-- **Tickets Management** : ![alt text](image-2.png)
-- **Automated campaign management** : ![alt text](image-3.png)
-- **Profile** : ![alt text](image-4.png)
+- **Dashboard** : ![alt text](/screenshots/dashboard.png)
+- **Conversational ai** : ![alt text](/screenshots/IA-conversationnelle.png)
+- **Tickets Management** : ![alt text](/screenshots/tickets-management.png)
+- **Automated campaign management** : ![alt text](/screenshots/campaigns.png)
+- **Profile** : ![alt text](/screenshots/profile.png)

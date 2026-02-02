@@ -27,6 +27,7 @@ const menuItems = [
 export default function Sidebar(){
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const isProfileActive = pathname === '/profile';
     return(
         <>
             <div className="fixed top-0 left-0 right-0 h-16 flex items-center pl-4 z-50 md:hidden bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -81,16 +82,25 @@ export default function Sidebar(){
                     })}
                 </nav>
 
-                <div className="p-4 border-t border-gray-50 space-y-2">
+                <div className=" flex flex-col gap-3 p-4 border-t border-gray-50 space-y-2">
                     <Link href="/profile">
-                        <div className="flex items-center gap-3 p-3 rounded-2xl hover:bg-gray-50 cursor-pointer group transition-colors">
-                            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-[#3590E3]/10 group-hover:text-[#3590E3] transition-colors">
+                        <div className={`flex items-center gap-3 p-3 rounded-2xl cursor-pointer transition-all group ${
+                            isProfileActive ? 'bg-[#3590E3] text-white shadow-lg shadow-blue-100' : 'hover:bg-gray-50'
+                        }`}>
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                                isProfileActive ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-400 group-hover:bg-[#3590E3]/10 group-hover:text-[#3590E3]'
+                            }`}>
                                 <UserCircle size={24} />
                             </div>
                             <div className="flex-1">
-                                <p className="text-xs font-black text-gray-800 uppercase tracking-tight">Admin PulsAI</p>
-                                <p className="text-[10px] text-gray-400 font-bold">Voir mon profil</p>
+                                <p className={`text-xs font-black uppercase tracking-tight ${isProfileActive ? 'text-white' : 'text-gray-800'}`}>
+                                    Admin PulsAI
+                                </p>
+                                <p className={`text-[10px] font-bold ${isProfileActive ? 'text-white/80' : 'text-gray-400'}`}>
+                                    Voir mon profil
+                                </p>
                             </div>
+                            {isProfileActive && <ChevronRight size={14} strokeWidth={3} />}
                         </div>
                     </Link>
 
