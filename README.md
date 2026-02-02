@@ -55,7 +55,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Vercel deployment link
 
-
+https://pulsai-dashboard.vercel.app/
 
 
 ## Screenshots of the main pages
