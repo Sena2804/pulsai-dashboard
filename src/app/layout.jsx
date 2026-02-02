@@ -7,10 +7,10 @@ export default function RootLayout({ children }) {
       <body>
         <div className="flex min-h-screen bg-gray-50">
             <Sidebar />
-            <div className="flex-1 md:ml-64 bg-[#F9FAFB] min-h-screen">
-                <main className="p-16">
-                  {children}
-                </main>
+            <div className="flex-1 md:ml-64 pb-10 pt-15 md:pt-1 bg-[#F9FAFB] min-h-screen">
+              <main className="p-16">
+                {children}
+              </main>
             </div>
         </div>
       </body>
