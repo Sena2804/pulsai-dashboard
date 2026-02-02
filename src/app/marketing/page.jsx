@@ -12,7 +12,6 @@ export default function MarketingPage() {
       channel: "Instagram",
       title: "Annonce Line-up Officiel",
       content: "Découvrez les artistes qui feront vibrer la plage de Fidjrossè cette année...",
-      schedule: "Demain à 18:00",
       audience: "Tous les abonnés",
       date: "2026-01-20T00:00:00",
     },
@@ -22,7 +21,6 @@ export default function MarketingPage() {
       channel: "WhatsApp",
       title: "Relance Panier Inachevé",
       content: "Salut ! On a remarqué que tu n'as pas terminé ton achat. Besoin d'aide ?",
-      schedule: "Automatique (H+2)",
       audience: "14 prospects",
       date: "2026-01-20T10:00:00",
     },
@@ -32,7 +30,6 @@ export default function MarketingPage() {
       channel: "Facebook",
       title: "Alerte Billets VIP",
       content: "Dernières 50 places disponibles pour le carré Gold ! Ne ratez pas l'occasion.",
-      schedule: "Envoyé ce matin",
       audience: "2.5k contacts",
       date: "2026-02-05T18:00:00",
     }

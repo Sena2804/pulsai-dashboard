@@ -44,7 +44,7 @@ const CampaignTask = ({ task, isPast }) => {
       <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Clock size={13} className="text-gray-300" />
-          <span className="text-[10px] font-bold text-gray-500">{task.schedule}</span>
+          <span className="text-[10px] font-bold text-gray-500">Prévue pour : {task.date}</span>
         </div>
         <div className="flex items-center gap-1 text-[10px] font-bold text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">
           <Users size={12} /> {task.audience}
