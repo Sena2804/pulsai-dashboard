@@ -13,6 +13,8 @@ const CampaignTask = ({ task, isPast }) => {
       default: return { icon: <Send size={18} />, color: 'bg-blue-50 text-blue-600' };
     }
   };
+  const [datePart, timePart] = task.date.split('T');
+  const shortTime = timePart.slice(0, 5);
 
   const config = getChannel(task.channel);
 
@@ -44,7 +46,7 @@ const CampaignTask = ({ task, isPast }) => {
       <div className="pt-4 border-t border-gray-50 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Clock size={13} className="text-gray-300" />
-          <span className="text-[10px] font-bold text-gray-500">Prévue pour : {task.date}</span>
+          <span className="text-[10px] font-bold text-gray-500">Prévue pour : {datePart} à {shortTime} </span>
         </div>
         <div className="flex items-center gap-1 text-[10px] font-bold text-gray-400 bg-gray-50 px-2 py-0.5 rounded-md">
           <Users size={12} /> {task.audience}
