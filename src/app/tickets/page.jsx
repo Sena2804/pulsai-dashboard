@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import TicketCard from '@/components/tickets/TicketCard';
 import TicketModal from '@/components/tickets/TicketModal';
 import PurchaseIssues from '@/components/tickets/PurchaseIssues';
+import { Plus } from 'lucide-react';
 
 export default function BilletteriePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,18 +30,24 @@ export default function BilletteriePage() {
 
   return (
     <div className="space-y-8">
-      <header className="mb-8">
-        <motion.h2 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-bold text-gray-800 font-unbounded"
-        >
-          Gestion des Tickets
-        </motion.h2>
-        <p className="text-gray-500 text-sm">Centralisez les demandes et les problèmes des clients par rapport aux tickets</p>
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <motion.h2 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-2xl font-bold text-gray-800 font-unbounded"
+          >
+            Gestion des Tickets
+          </motion.h2>
+          <p className="text-gray-500 text-sm">Centralisez les demandes et les problèmes des clients par rapport aux tickets</p>
+        </div>
+
+        <button className="bg-[#3590E3] cursor-pointer text-white px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-100 hover:scale-105 transition-all">
+          <Plus size={18} /> Nouveau ticket
+        </button>
       </header>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
         <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
         <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
         <TicketCard event={eventData} onOpenDetails={() => setIsModalOpen(true)} />
