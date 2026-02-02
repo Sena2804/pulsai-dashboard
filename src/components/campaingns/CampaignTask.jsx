@@ -9,7 +9,7 @@ const CampaignTask = ({ task, isPast }) => {
     switch (channel) {
       case 'Instagram': return { icon: <Instagram size={18} />, color: 'bg-pink-50 text-pink-600' };
       case 'WhatsApp': return { icon: <MessageCircle size={18} />, color: 'bg-green-50 text-green-600' };
-      case 'Facebook' : return {icon: <Facebook size={18}/>, color: 'bg-blue-50 text-white'};
+      case 'Facebook' : return {icon: <Facebook size={18}/>, color: 'bg-blue-500 text-black'};
       default: return { icon: <Send size={18} />, color: 'bg-blue-50 text-blue-600' };
     }
   };
