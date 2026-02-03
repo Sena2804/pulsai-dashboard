@@ -53,7 +53,7 @@ export default function ChatWindow({ activeConv, onSendMessage }) {
               }`}>
                 {msg.role === 'ai' && (
                   <div className="absolute -top-3 right-0 bg-white text-[#3590E3] text-[9px] px-2 py-0.5 rounded-full font-bold border shadow-sm flex items-center gap-1">
-                    <Sparkles size={10} /> {msg.confidence}%
+                    <Sparkles size={10} /> IA
                   </div>
                 )}
                 {msg.role === 'admin' && (
