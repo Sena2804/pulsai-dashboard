@@ -31,7 +31,7 @@ export default function Home() {
           title="Clients Actifs" 
           value="892" 
           icon={Users} 
-          trend="+5%" 
+          trend="-5%" 
           isNegative="true"
           color="bg-[#BAF09D]/40" 
         />
