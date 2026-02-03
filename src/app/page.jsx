@@ -56,8 +56,7 @@ export default function Home() {
               <h3 className="font-bold text-gray-800">Performance des Campagnes</h3>
             </div>
             <select className="text-sm bg-gray-50 border-none rounded-lg px-3 py-2 outline-none text-gray-600 font-medium cursor-pointer hover:bg-gray-100 transition-colors">
-              <option>7 derniers jours</option>
-              <option>30 derniers jours</option>
+              <option>27 dernières secondes</option>
             </select>
           </div>
           <div className="w-full h-[350px]">
