@@ -22,9 +22,6 @@ const AutomaticsStats = () => {
           <Zap className="text-[#BAF09D]" size={20} />
           <h3 className="font-bold text-gray-800">Automatisations Actives</h3>
         </div>
-        <span className="text-xs font-bold px-3 py-1 bg-green-100 text-green-600 rounded-full animate-pulse">
-          Live • 4 campagnes
-        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
